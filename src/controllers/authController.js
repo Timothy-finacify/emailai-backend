@@ -71,7 +71,7 @@ const sendEmail = async (email, subject, message) => {
       throw new Error('Email service not properly configured');
     }
 
-    cconst transporter = nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   port: parseInt(process.env.SMTP_PORT || 465),
   secure: true,
