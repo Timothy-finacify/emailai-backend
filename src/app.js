@@ -494,7 +494,7 @@ try {
 }
 
 // ✅ Public API v1 Routes (for developers using x-api-key)
-app.use('/api', require('./routes/apiRoutes'));
+app.use('/api/v1', require('./routes/apiRoutes'));
 console.log('✅ Public API v1 routes loaded'); 
 
 
