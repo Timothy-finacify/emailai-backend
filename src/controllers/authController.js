@@ -71,17 +71,17 @@ const sendEmail = async (email, subject, message) => {
       throw new Error('Email service not properly configured');
     }
 
-  const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: parseInt(process.env.SMTP_PORT || 465),
-  secure: true,
-  auth: {
-    user: (process.env.SMTP_USER || '').trim(),
-    pass: (process.env.SMTP_PASS || '').trim()
-  },
-  tls: { rejectUnauthorized: false },
-  family: 4
-});
+    const transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || 465),
+      secure: true,
+      auth: {
+        user: (process.env.SMTP_USER || '').trim(),
+        pass: (process.env.SMTP_PASS || '').trim()
+      },
+      tls: { rejectUnauthorized: false },
+      family: 4
+    });
 
     await transporter.verify();
 
@@ -105,9 +105,7 @@ const sendEmail = async (email, subject, message) => {
   } catch (error) {
     console.error(`❌ Email error for ${email}:`, error.message);
     return false;
-  }
-};
-
+  }};
 // ============================================
 // 1. CHECK EMAIL AVAILABILITY
 // ============================================
