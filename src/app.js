@@ -253,6 +253,7 @@ app.get('/api/csrf-token', (req, res) => {
   });
 });
 
+
 // ============================================
 // EMAIL SERVICE CONFIGURATION
 // ============================================
@@ -265,12 +266,14 @@ if (process.env.SMTP_USER && process.env.SMTP_PASS && process.env.SMTP_HOST) {
   
   emailTransporter = nodemailer.createTransport({
     host: (process.env.SMTP_HOST || 'smtp.gmail.com').trim(),
-    port: parseInt(process.env.SMTP_PORT || 587),
-    secure: process.env.SMTP_SECURE === 'true' ? true : false,
+    port: parseInt(process.env.SMTP_PORT || 465),
+    secure: true,
     auth: {
       user: (process.env.SMTP_USER || '').trim(),
       pass: (process.env.SMTP_PASS || '').trim()
-    }
+    },
+    tls: { rejectUnauthorized: false },
+    family: 4
   });
 
   emailTransporter.verify((error, success) => {
@@ -285,6 +288,10 @@ if (process.env.SMTP_USER && process.env.SMTP_PASS && process.env.SMTP_HOST) {
 }
 
 app.set('emailTransporter', emailTransporter);
+
+
+
+
 
 // ============================================
 // MONGODB CONNECTION
