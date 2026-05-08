@@ -1,0 +1,13 @@
+export function checkEmail(req: any, res: any): Promise<any>;
+export function sendOTP(req: any, res: any): Promise<any>;
+export function signUp(req: any, res: any): Promise<any>;
+export function verifyOTP(req: any, res: any): Promise<any>;
+export function signIn(req: any, res: any): Promise<any>;
+export function signOut(req: any, res: any): Promise<void>;
+export function refreshToken(req: any, res: any): Promise<any>;
+export function forgotPassword(req: any, res: any): Promise<any>;
+export function resetPassword(req: any, res: any): Promise<any>;
+export function selectPlan(req: any, res: any): Promise<any>;
+export function createPayPalOrder(req: any, res: any): Promise<any>;
+export function capturePayPalOrder(req: any, res: any): Promise<any>;
+export function checkPaymentStatus(req: any, res: any): Promise<any>;

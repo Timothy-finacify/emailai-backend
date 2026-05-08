@@ -1,0 +1,12 @@
+name = "emailai-backend"
+main = "worker.js"
+compatibility_date = "2025-08-15"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+NODE_ENV = "production"
+FRONTEND_URL = "https://email-brain.pages.dev"
+MONGODB_URI = "mongodb+srv://ATOHTIMOTHY:SaphireTimothyDavid12345SamanthaMylove@cluster0.5anlgks.mongodb.net/emailpro?retryWrites=true&w=majority&appName=Cluster0"
+
+[node_compat]
+enabled = true
