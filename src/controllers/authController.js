@@ -71,15 +71,17 @@ const sendEmail = async (email, subject, message) => {
       throw new Error('Email service not properly configured');
     }
 
-    const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT || 587,
-      secure: process.env.SMTP_SECURE === 'true' ? true : false,
-      auth: {
-        user: (process.env.SMTP_USER || '').trim(),
-        pass: (process.env.SMTP_PASS || '').trim()
-      }
-    });
+    cconst transporter = nodemailer.createTransport({
+  host: process.env.SMTP_HOST,
+  port: parseInt(process.env.SMTP_PORT || 465),
+  secure: true,
+  auth: {
+    user: (process.env.SMTP_USER || '').trim(),
+    pass: (process.env.SMTP_PASS || '').trim()
+  },
+  tls: { rejectUnauthorized: false },
+  family: 4
+});
 
     await transporter.verify();
 
